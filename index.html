@@ -1,0 +1,190 @@
+<!doctype html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Окулус‑Фельдшер — цифровая подготовка к операциям</title>
+    <meta
+      name="description"
+      content="Платформа для удаленной предоперационной подготовки пациентов между районными офтальмологами и областными хирургами."
+    />
+    <link rel="manifest" href="manifest.webmanifest" />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <header class="topbar">
+      <div class="container topbar__inner">
+        <div class="brand">
+          <span class="brand__logo">◉</span>
+          <div>
+            <strong>Окулус‑Фельдшер</strong>
+            <small>MedTech platform</small>
+          </div>
+        </div>
+        <nav class="menu">
+          <a href="#roles">Роли</a>
+          <a href="#dashboard">Дашборд</a>
+          <a href="#checklist">Чек‑лист</a>
+          <a href="#calculator">ИОЛ‑калькулятор</a>
+        </nav>
+      </div>
+    </header>
+
+    <main>
+      <section class="hero">
+        <div class="container hero__grid">
+          <div>
+            <p class="badge">MVP · Web + PWA</p>
+            <h1>Удаленная подготовка пациентов к офтальмологическим операциям</h1>
+            <p class="hero__lead">
+              Единая цифровая связка между районным врачом и хирургом областного центра:
+              меньше поездок, меньше бумажной волокиты, быстрее назначение даты операции.
+            </p>
+            <div class="hero__actions">
+              <a class="btn btn--primary" href="#dashboard">Открыть демо‑интерфейс</a>
+              <a class="btn" href="#patient">Пациентский статус</a>
+            </div>
+          </div>
+          <div class="hero__panel card">
+            <h3>Сейчас в системе</h3>
+            <ul class="stats">
+              <li><span>Районов</span><strong>12</strong></li>
+              <li><span>Пациентов в работе</span><strong>148</strong></li>
+              <li><span>Ожидают подтверждения</span><strong>37</strong></li>
+              <li><span>Готовы к операции</span><strong>64</strong></li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <section id="roles" class="section">
+        <div class="container">
+          <h2>Роли в системе</h2>
+          <div class="grid grid--3">
+            <article class="card role role--doctor">
+              <h3>Районный офтальмолог</h3>
+              <p>Ведет карточку пациента, заполняет протокол подготовки, загружает анализы и снимки.</p>
+            </article>
+            <article class="card role role--surgeon">
+              <h3>Хирург‑куратор</h3>
+              <p>Проверяет готовность, оставляет рекомендации, подтверждает операцию и дату госпитализации.</p>
+            </article>
+            <article class="card role role--patient">
+              <h3>Пациент</h3>
+              <p>Видит только этапы маршрута, статус готовности и дату явки на операцию.</p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section id="dashboard" class="section section--muted">
+        <div class="container">
+          <h2>Дашборд районного врача</h2>
+          <div class="card">
+            <div class="table-wrap">
+              <table>
+                <thead>
+                  <tr>
+                    <th>Пациент</th>
+                    <th>Район</th>
+                    <th>Диагноз (МКБ‑10)</th>
+                    <th>Статус</th>
+                    <th>Последнее действие</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>Иванов П.С.</td>
+                    <td>Верхний</td>
+                    <td>H25.1</td>
+                    <td><span class="pill pill--red">Требуется консультация</span></td>
+                    <td>Нет заключения терапевта</td>
+                  </tr>
+                  <tr>
+                    <td>Садыкова Л.А.</td>
+                    <td>Озерный</td>
+                    <td>H40.1</td>
+                    <td><span class="pill pill--yellow">Идет подготовка</span></td>
+                    <td>Ожидается ЭКГ</td>
+                  </tr>
+                  <tr>
+                    <td>Кузнецов М.Д.</td>
+                    <td>Луговой</td>
+                    <td>H26.9</td>
+                    <td><span class="pill pill--green">Готов к операции</span></td>
+                    <td>Подтвержден хирургом</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="checklist" class="section">
+        <div class="container">
+          <h2>Цифровой чек‑лист подготовки</h2>
+          <div class="grid grid--2">
+            <form id="checklistForm" class="card">
+              <h3>Факоэмульсификация — обязательные пункты</h3>
+              <label><input type="checkbox" name="blood" /> Анализ крови (глюкоза, гемоглобин)</label>
+              <label><input type="checkbox" name="ecg" /> ЭКГ (файл загружен)</label>
+              <label><input type="checkbox" name="fluoro" /> Флюорография / заключение</label>
+              <label><input type="checkbox" name="therapist" /> Осмотр терапевта</label>
+              <label><input type="checkbox" name="culture" /> Бакпосев</label>
+              <label>Дата расчета ИОЛ <input type="date" name="iolDate" /></label>
+              <div class="form-actions">
+                <button type="button" id="saveDraft" class="btn">Сохранить оффлайн</button>
+                <button type="button" id="validateChecklist" class="btn btn--primary">Проверить готовность</button>
+              </div>
+            </form>
+            <aside class="card" id="checklistResult">
+              <h3>Результат проверки</h3>
+              <p>Заполните чек‑лист и нажмите «Проверить готовность».</p>
+            </aside>
+          </div>
+        </div>
+      </section>
+
+      <section id="calculator" class="section section--muted">
+        <div class="container">
+          <h2>ИОЛ‑калькулятор (демо)</h2>
+          <div class="grid grid--2">
+            <form id="iolForm" class="card form-grid">
+              <label>K1 <input type="number" step="0.1" name="k1" value="43.5" required /></label>
+              <label>K2 <input type="number" step="0.1" name="k2" value="44.1" required /></label>
+              <label>ACD <input type="number" step="0.1" name="acd" value="3.2" required /></label>
+              <label>Осевая длина (AL) <input type="number" step="0.1" name="al" value="23.9" required /></label>
+              <label>A-const <input type="number" step="0.1" name="aConst" value="118.4" required /></label>
+              <button class="btn btn--primary" type="submit">Рассчитать</button>
+            </form>
+            <aside class="card" id="iolResult">
+              <h3>Рекомендация</h3>
+              <p>Введите параметры глаза и получите расчет по 2 формулам.</p>
+            </aside>
+          </div>
+        </div>
+      </section>
+
+      <section id="patient" class="section">
+        <div class="container">
+          <h2>Пациентский экран статуса</h2>
+          <div class="card timeline">
+            <div class="timeline__item done">Этап 1: Анализы в районной поликлинике — завершено</div>
+            <div class="timeline__item current">Этап 2: Проверка хирургом — ожидание</div>
+            <div class="timeline__item">Этап 3: Операция — будет назначена после подтверждения</div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <div class="container footer__inner">
+        <p>© 2026 Окулус‑Фельдшер · MVP demo</p>
+        <p>Совместимость по архитектуре: HL7/FHIR (поля‑заглушки)</p>
+      </div>
+    </footer>
+
+    <script src="app.js"></script>
+  </body>
+</html>

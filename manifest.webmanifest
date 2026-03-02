@@ -1,0 +1,10 @@
+{
+  "name": "Окулус‑Фельдшер",
+  "short_name": "Окулус",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#f2f6fb",
+  "theme_color": "#0b66c3",
+  "description": "Платформа удаленной предоперационной подготовки пациентов.",
+  "icons": []
+}
